@@ -1,0 +1,10 @@
+.container {
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 45px;
+  color: rgb(165, 42, 138);
+}
