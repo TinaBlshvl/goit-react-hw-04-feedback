@@ -31,36 +31,36 @@ export const App = () => {
       default:
         return 0;
     }
-
-    const countTotalFeedback = () => {
-      return good + neutral + bad;
-    };
-
-    const countPositiveFeedbackPercentage = () => {
-      const total = this.countTotalFeedback();
-      return Math.round(((total - neutral / 2 - bad) / total) * 100);
-    };
-
-    return (
-      <>
-        <Section title="Please leave feedback">
-          <FeedbackOptions
-            options={['good', 'neutral', 'bad']}
-            handleClick={onLeaveFeedback}
-          />
-          {good || neutral || bad ? (
-            <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              total={countTotalFeedback()}
-              positivePercentage={countPositiveFeedbackPercentage()}
-            />
-          ) : (
-            <Notification message="There is no feedback" />
-          )}
-        </Section>
-      </>
-    );
   };
+
+  const countTotalFeedback = () => {
+    return good + neutral + bad;
+  };
+
+  const countPositiveFeedbackPercentage = () => {
+    const total = this.countTotalFeedback();
+    return Math.round(((total - neutral / 2 - bad) / total) * 100);
+  };
+
+  return (
+    <>
+      <Section title="Please leave feedback">
+        <FeedbackOptions
+          options={['good', 'neutral', 'bad']}
+          handleClick={onLeaveFeedback}
+        />
+        {good || neutral || bad ? (
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={countTotalFeedback()}
+            positivePercentage={countPositiveFeedbackPercentage()}
+          />
+        ) : (
+          <Notification message="There is no feedback" />
+        )}
+      </Section>
+    </>
+  );
 };
